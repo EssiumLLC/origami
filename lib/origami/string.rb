@@ -374,7 +374,7 @@ module Origami
 
         attr_reader :year, :month, :day, :hour, :min, :sec, :utc_offset
 
-        def initialize(year:, month: 1, day: 1, hour: 0, min: 0, sec: 0, utc_offset: 0)
+        def initialize(year: 1900, month: 1, day: 1, hour: 0, min: 0, sec: 0, utc_offset: 0)
             @year, @month, @day, @hour, @min, @sec = year, month, day, hour, min, sec
             @utc_offset = utc_offset
 
@@ -417,7 +417,7 @@ module Origami
                 date[:utc_offset] = utc_offset
             end
 
-            Origami::Date.new(date)
+            Origami::Date.new(**date)
         end
 
         #
@@ -437,7 +437,7 @@ module Origami
                 utc_offset: now.utc_offset
             }
 
-            Origami::Date.new(date)
+            Origami::Date.new(**date)
         end
     end
 
